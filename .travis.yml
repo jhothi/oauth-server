@@ -9,6 +9,8 @@ go:
   - "1.10.x"
 
 deploy:
-  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - push spidey345/oauth-server
+  provider: script
+  script: bash docker_push
+  on:
+    branch: master
 
